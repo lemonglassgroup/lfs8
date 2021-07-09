@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::get('posts/{post}', function ($slug) {
     return view('post', ['post' => Post::findOrFail($slug)]);
 });
+
+// TODO LFS8 e19
