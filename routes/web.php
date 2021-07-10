@@ -20,8 +20,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function ($slug) {
-    return view('post', ['post' => Post::findOrFail($slug)]);
+Route::get('posts/{post}', function ($id) {
+    return view('post', ['post' => Post::findOrFail($id)]);
 });
 
-// TODO LFS8 e19
