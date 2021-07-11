@@ -20,7 +20,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function ($id) {
-    return view('post', ['post' => Post::findOrFail($id)]);
+Route::get('posts/{post}', function (Post $post) { // if {post:slug} is used, no need to override getRouteKeyName() in Post
+    return view('post', ['post' => $post]);
 });
 
