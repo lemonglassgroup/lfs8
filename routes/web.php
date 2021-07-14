@@ -2,6 +2,7 @@
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => Post::with('category')->get()
     ]);
 });
 
