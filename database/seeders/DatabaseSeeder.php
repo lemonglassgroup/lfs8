@@ -16,43 +16,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        ### If DB is not refreshed at the start, following applies
         User::truncate();
         Category::truncate();
         Post::truncate();
+        ### END
 
-        $user = User::factory()->create();
+        ### To define a user and keep multiple posts to one user
+        ### (code at #36 must be disabled)
+//        $user = User::factory()->create([
+//            'name' => 'Joe Doe'
+//            ]);
+//
+//        Post::factory(5)->create([
+//            'user_id' => $user
+//        ]);
+        ### END
 
-        $personal = Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
-
-        $family = Category::create([
-            'name' => 'Family',
-            'slug' => 'family'
-        ]);
-
-        $work = Category::create([
-            'name' => 'Work',
-            'slug' => 'work'
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $family->id,
-            'title' => 'My Family Post',
-            'slug' => 'my-family-post',
-            'excerpt' => '<p>Lorem ipsum dolar sit amet</p>',
-            'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan semper ex, a rhoncus quam faucibus a. Ut porttitor tristique neque, sed maximus libero feugiat maximus. Cras euismod auctor nisl eget ultrices. Mauris euismod sed dui id lacinia. Ut non vestibulum nunc. Sed in eros sed ligula eleifend pellentesque ac vitae neque. Suspendisse euismod metus ac elit consequat vehicula. Morbi suscipit pharetra turpis et blandit. Aenean faucibus in lorem at facilisis. Pellentesque suscipit eros quis velit dapibus efficitur. Nulla facilisi. Sed malesuada eget augue ut venenatis.</p> '
-        ]);
-
-        Post::create([
-            'user_id' => $user->id,
-            'category_id' => $work->id,
-            'title' => 'My Work Post',
-            'slug' => 'my-work-post',
-            'excerpt' => '<p>Lorem ipsum dolar sit amet</p>',
-            'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan semper ex, a rhoncus quam faucibus a. Ut porttitor tristique neque, sed maximus libero feugiat maximus. Cras euismod auctor nisl eget ultrices. Mauris euismod sed dui id lacinia. Ut non vestibulum nunc. Sed in eros sed ligula eleifend pellentesque ac vitae neque. Suspendisse euismod metus ac elit consequat vehicula. Morbi suscipit pharetra turpis et blandit. Aenean faucibus in lorem at facilisis. Pellentesque suscipit eros quis velit dapibus efficitur. Nulla facilisi. Sed malesuada eget augue ut venenatis.</p> '
-        ]);
+        Post::factory(5)->create();
     }
 }
