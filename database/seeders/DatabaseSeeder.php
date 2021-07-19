@@ -23,16 +23,27 @@ class DatabaseSeeder extends Seeder
         ### END
 
         ### To define a user and keep multiple posts to one user
-        ### (code at #36 must be disabled)
-//        $user = User::factory()->create([
-//            'name' => 'Joe Doe'
-//            ]);
-//
-//        Post::factory(5)->create([
-//            'user_id' => $user
-//        ]);
+        $user = User::factory()->create([
+            'name' => 'Joe Doe'
+            ]);
+
+        Post::factory(5)->create([
+            'user_id' => $user
+        ]);
         ### END
 
+        ### Multiple posts to one category
+        $category = Category::factory()->create([
+            'name' => 'Lorem'
+            ]);
+
+        Post::factory(5)->create([
+            'category_id' => $category
+        ]);
+        ### END
+
+        ### Random posts
         Post::factory(5)->create();
+        ### END
     }
 }
