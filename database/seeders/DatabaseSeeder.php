@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Joe Doe'
             ]);
 
-        Post::factory(5)->create([
+        Post::factory(15)->create([
             'user_id' => $user
         ]);
         ### END
@@ -37,13 +37,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Lorem'
             ]);
 
-        Post::factory(5)->create([
+        Post::factory(15)->create([
             'category_id' => $category
         ]);
         ### END
 
         ### Random posts
-        Post::factory(5)->create();
+        Post::factory(15)->create();
         ### END
     }
 }
