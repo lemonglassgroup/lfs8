@@ -22,7 +22,9 @@ class RegistrationController extends Controller
             'password' => 'required|max:255|min:8'
         ]);
 
-        User::create($attributes);
+        $user = User::create($attributes);
+
+        auth()->login($user);
 
         return redirect('/')->with('success', 'Your account has been created');
     }
