@@ -15,10 +15,10 @@ class RegistrationController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|min:2',
 //            'name' => ['required', 'max:255'] functionally identical
-            'username' => 'required|max:255|min:3',
-            'email' => 'required|email|max:255',
+            'username' => 'required|max:255|min:3|unique:App\Models\User',
+            'email' => 'required|email|max:255|unique:App\Models\User',
             'password' => 'required|max:255|min:8'
         ]);
 
