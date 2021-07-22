@@ -29,7 +29,7 @@ class SessionController extends Controller
         throw ValidationException::withMessages([
             'email' => 'Your provided credentials could not be verified.'
         ]);
-[]
+
         ### Other way to do
 //        return back()
 //            ->withInput()
