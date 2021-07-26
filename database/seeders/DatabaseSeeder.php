@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         ### If DB is not refreshed at the start, following applies
-        User::truncate();
-        Category::truncate();
-        Post::truncate();
+//        User::truncate();
+//        Category::truncate();
+//        Post::truncate();
         ### END
 
         ### To define a user and keep multiple posts to one user
